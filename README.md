@@ -73,6 +73,23 @@ The full report includes all findings, commands, screenshots, and remediation re
 
 ---
 
+## 🖥️ Virtual Machine Deployment
+![VM Import Screenshot](screenshots/vm_import.png)
+
+----
+
+## 🔍 Reconnaissance
+Nmap scan results showing open ports:
+![Nmap Scan](screenshots/nmap_scan.png)
+
+---
+
+## 🏁 Flag Discovery
+Example of captured flag:
+![Flag 1](screenshots/flag1_found.png)
+
+---
+
 ## 👤 Author
 **Oppong Isaac**  
 Cyber Security & Ethical Hacking Internship Project  
