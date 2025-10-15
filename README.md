@@ -1,50 +1,36 @@
 # 🕵️‍♂️ Project 4 — Web Application CTF Challenge
 
 ## 📘 Overview
-This repository contains documentation and supporting materials for a Capture The Flag (CTF) challenge completed as part of a Cyber Security & Ethical Hacking Internship.
-
-The exercise involved analyzing a vulnerable web application hosted in a VirtualBox sandbox, identifying potential vulnerabilities, and retrieving six hidden flags through manual penetration testing.
+This repository documents my **Capture The Flag (CTF)** project from the **Cyber Security & Ethical Hacking Internship**.  
+The challenge involved analyzing a vulnerable web application deployed on a local VirtualBox machine, performing reconnaissance and enumeration, exploiting vulnerabilities, and capturing six hidden flags.
 
 ---
 
 ## 🎯 Objectives
 - Deploy and analyze a vulnerable web application.
-- Perform reconnaissance, enumeration, and vulnerability testing.
-- Identify and capture six (6) planted flags.
-- Document findings and recommend mitigations.
+- Perform reconnaissance, enumeration, and vulnerability analysis.
+- Identify and capture six (6) hidden flags.
+- Document findings and remediation recommendations.
 
 ---
 
-## 🧰 Tools Used
-- **Operating System:** Kali Linux  
-- **Tools:** Nmap, Gobuster, Dirb, Burp Suite, Curl, Browser  
-- **Environment:** Oracle VirtualBox (Bridged Adapter mode)
+## 🧰 Tools & Environment
+| Tool | Purpose |
+|------|----------|
+| Kali Linux | Attacker system |
+| Oracle VirtualBox | VM host for vulnerable machine |
+| Nmap | Port and service discovery |
+| Gobuster / Dirb | Directory enumeration |
+| Burp Suite | HTTP interception and testing |
+| Curl / Browser | Manual inspection and validation |
 
----
-
-## ⚙️ Methodology
-1. **Reconnaissance:** Used `nmap` to discover open ports and services.  
-2. **Enumeration:** Employed `gobuster` to identify hidden directories.  
-3. **Analysis:** Investigated accessible pages (`/4dm1n`, `/c0nf1g`, `/robotx.txt`, etc.).  
-4. **Exploitation:** Retrieved and documented 6 flags from web-accessible files.  
-5. **Reporting:** Findings compiled into a professional PDF report.
-
----
-
-## 🏁 Findings Summary
-| Flag | Location | Description |
-|------|-----------|-------------|
-| 1 | `/flag1.txt` | Exposed file on web root |
-| 2 | `/robotx.txt` | Sensitive file revealed via enumeration |
-| 3 | `/pages/BlogPostCcomponent.html` | Flag in HTML source |
-| 4 | `/4dm1n` | Admin path exposure |
-| 5 | `/c0nf1g` | Misconfigured settings file |
-| 6 | `/4dm1n` | Additional flag under admin page |
+**Network Mode:** Bridged Adapter  
+**Target VM IP:** `192.168.248.96`
 
 ---
 
 ## 💾 Virtual Machine
-Due to GitHub’s file size limits, the CTF VirtualBox image (≈3 GB) is hosted externally.
+Due to GitHub file size limits, the vulnerable VirtualBox machine (≈3 GB) is hosted externally.  
 
 📦 **Download Link:**  
 👉 [Google Drive – CTF Challenge VM](https://drive.google.com/file/d/1nYg_YWRvZn1ERzJ9hYO-umF7fo4RcXGs/view?usp=drive_link)
@@ -52,45 +38,84 @@ Due to GitHub’s file size limits, the CTF VirtualBox image (≈3 GB) is hosted
 After downloading:
 1. Open **Oracle VirtualBox**
 2. Go to **File → Import Appliance**
-3. Select the `.ova` file and import it.
+3. Select the `.ova` file and import it
 4. Set Network Mode to **Bridged Adapter**
+5. Start the machine and note the IP displayed on startup
+
+---
+
+## 🖼️ Screenshots
+
+### 🧩 VM Deployment
+*(Importing the CTF Appliance in VirtualBox)*  
+![VM Setup](screenshots/vm_import.png)
+
+---
+
+### 🔍 Reconnaissance
+**Nmap Scan** — discovering open ports and services  
+![Nmap Scan](screenshots/nmap_scan.png)
+
+**Gobuster Enumeration** — discovering hidden directories  
+![Gobuster Output](screenshots/gobuster_output.png)
+
+---
+
+### 🏁 Flag Discovery
+Each flag was obtained by inspecting web directories and source code:
+
+| Flag | Path | Method |
+|------|------|---------|
+| 1 | `/flag1.txt` | Direct access |
+| 2 | `/robotx.txt` | Discovered via enumeration |
+| 3 | `/pages/BlogPostCcomponent.html` | Found in HTML comments |
+| 4 | `/4dm1n` | Exposed admin area |
+| 5 | `/c0nf1g` | Configuration file |
+| 6 | `/4dm1n` | Additional flag in admin panel |
+
+Example flag discovery:  
+![Flag Found](screenshots/flag1_found.png)
+
+---
+
+## ⚙️ Methodology
+1. **Reconnaissance** — Identify open ports with `nmap`.  
+2. **Enumeration** — Use `gobuster` or `dirb` to reveal hidden paths.  
+3. **Manual Analysis** — Inspect pages, comments, and configurations.  
+4. **Flag Collection** — Retrieve all six hidden flags.  
+5. **Reporting** — Document findings and propose mitigations.
+
+---
+
+## 🔐 Vulnerability Analysis
+| Issue | Description | Risk |
+|-------|--------------|------|
+| Exposed config files | Contain sensitive info (credentials) | High |
+| Weak admin access control | Accessible via predictable `/4dm1n` path | High |
+| Hidden files in webroot | Leakage of internal data | Medium |
+| Lack of directory restrictions | Easy brute-force enumeration | Medium |
+
+---
+
+## 🛡️ Recommendations
+- Restrict admin access (strong authentication, MFA).
+- Remove sensitive files from the web root.
+- Disable directory listing.
+- Implement proper access controls and logging.
+- Regularly scan for exposed resources.
 
 ---
 
 ## 📄 Documentation
-The full report includes all findings, commands, screenshots, and remediation recommendations.
+The complete report includes detailed findings, commands, screenshots, and recommendations.
 
-📘 **[Download Report (PDF)](report/CTF_Report_Project_4_Polished_Final.pdf)**
-
----
-
-## 🔐 Remediation Recommendations
-- Remove sensitive files from webroot.  
-- Restrict admin interface access.  
-- Disable directory listings.  
-- Implement strong authentication and logging.  
-- Regularly scan for misconfigurations.
-
----
-
-## 🖥️ Virtual Machine Deployment
-![VM Import Screenshot](screenshots/vm_import.png)
-
-----
-
-## 🔍 Reconnaissance
-Nmap scan results showing open ports:
-![Nmap Scan](screenshots/nmap_scan.png)
-
----
-
-## 🏁 Flag Discovery
-Example of captured flag:
-![Flag 1](screenshots/flag1_found.png)
+📘 **[View Report (PDF)](report/CTF_Report_Project_4_Polished_Final.pdf)**
 
 ---
 
 ## 👤 Author
 **Oppong Isaac**  
-Cyber Security & Ethical Hacking Internship Project  
-October 2025
+Cyber Security & Ethical Hacking Internship — Project 4  
+October 2025  
+
+---
