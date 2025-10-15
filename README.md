@@ -47,7 +47,7 @@ The exercise involved analyzing a vulnerable web application hosted in a Virtual
 Due to GitHub’s file size limits, the CTF VirtualBox image (≈3 GB) is hosted externally.
 
 📦 **Download Link:**  
-👉 [Google Drive – CTF Challenge VM]([https://drive.google.com/file/d/1nYg_YWRvZn1ERzJ9hYO-umF7fo4RcXGs/view?usp=drive_link])
+👉 [Google Drive – CTF Challenge VM](https://drive.google.com/file/d/1nYg_YWRvZn1ERzJ9hYO-umF7fo4RcXGs/view?usp=drive_link)
 
 After downloading:
 1. Open **Oracle VirtualBox**
