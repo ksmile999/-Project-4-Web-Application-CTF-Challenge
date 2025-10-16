@@ -46,6 +46,13 @@ After downloading:
 
 ## 🖼️ Screenshots
 
+- `vm_import.png`
+- `nmap_scan.png`
+- `gobuster_output.png`
+- `flag1_found.png`
+- `flag_summary.png`
+- `report_cover.png`
+
 ### 🧩 VM Deployment
 *(Importing the CTF Appliance in VirtualBox)*  
 ![VM Setup](screenshots/vm_import.png)
